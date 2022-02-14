@@ -87,5 +87,6 @@ int main()
     double sol = sum / (double)count;
     sol += 0.000000000001;
     cout << fixed << setprecision(2) << sol << "\n";
+    
     return 0;
 }
