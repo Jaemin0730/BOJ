@@ -8,28 +8,23 @@ int main(void)
 {
     u;
     while (1) {
-        int a[3];
-        for (int i = 0; i < 3; i++) {
-            cin >> a[i];
-        }
-        string s;
-        sort(a, a + 3);
-        if (a[0] == 0 && a[1] == 0 && a[2] == 0)
+        int a, b, c; 
+        cin >> a >> b >> c; 
+        if (a == 0 && b == 0 && c == 0) { 
             break;
-        if (a[2] >= a[1] + a[0]){
-            s = "Invalid";
         }
-        else if (a[0] != a[1] && a[1] != a[2] && a[0] != a[2]) {
-            s = "Scalene";
+        int sides[3] = { a, b, c };
+        sort(sides, sides + 3);
+        if (sides[2] >= sides[1] + sides[0]) {
+            cout << "Invalid\n"; continue; 
         }
-        else {
-            if (a[0] == a[1] && a[1] == a[2]) {
-                s = "Equilateral";
-            }
-            else {
-                s = "Iscosceles";
-            }
+        if (a == b && b == c && c == a) {
+            cout << "Equilateral\n"; continue; 
         }
-        cout << s << "\n";
+        if (a == b || b == c || c == a) {
+            cout << "Isosceles\n"; continue; 
+        } 
+        cout << "Scalene\n";
     }
 }
+
